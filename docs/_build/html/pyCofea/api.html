@@ -67,7 +67,7 @@
 <meta property="og:url"         content="https://cofea.readthedocs.io/pyCofea/api.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="CoFEA module implementation" />
-<meta property="og:description" content="CoFEA module implementation  The following section contains a documentation of the CoFEA module implementation.    class cofea.MeshmodelName, listOfParts[source" />
+<meta property="og:description" content="CoFEA module implementation  The following section contains a documentation of the CoFEA module implementation.    class cofea.MeshmodelName, dictOfParts, asbly" />
 <meta property="og:image"       content="https://cofea.readthedocs.io/_static/cofea-black.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -305,7 +305,7 @@
 <p>The following section contains a documentation of the CoFEA module implementation.</p>
 <dl class="class">
 <dt id="cofea.Mesh">
-<em class="property">class </em><code class="sig-prename descclassname">cofea.</code><code class="sig-name descname">Mesh</code><span class="sig-paren">(</span><em class="sig-param">modelName</em>, <em class="sig-param">listOfParts</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cofea.html#Mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cofea.Mesh" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cofea.</code><code class="sig-name descname">Mesh</code><span class="sig-paren">(</span><em class="sig-param">modelName</em>, <em class="sig-param">dictOfParts</em>, <em class="sig-param">asblyElementSets=None</em>, <em class="sig-param">asblyNodeSets=None</em>, <em class="sig-param">asblySurfaces=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cofea.html#Mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cofea.Mesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mesh is the most general class used to import, store
 and export mesh data. The idea is to initialise the constructor,
 then import mesh from db file. Finally, the mesh can be
@@ -350,22 +350,6 @@ exported to an external format. For example</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="cofea.Mesh.computeAssemblyMesh">
-<code class="sig-name descname">computeAssemblyMesh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cofea.html#Mesh.computeAssemblyMesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cofea.Mesh.computeAssemblyMesh" title="Permalink to this definition">¶</a></dt>
-<dd><p>Function computes mesh at assembly level from list
-of Part objects. The returned dictionary contains
-parts with renumbered nodes and elements</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>dictionary of parts</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>defaultdict(<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#list" title="(in Python v3.8)">list</a>)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
 <dt id="cofea.Mesh.exportToCalculix">
 <code class="sig-name descname">exportToCalculix</code><span class="sig-paren">(</span><em class="sig-param">exportedFilename</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cofea.html#Mesh.exportToCalculix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cofea.Mesh.exportToCalculix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function to export mesh to Calculix format</p>
@@ -389,7 +373,7 @@ parts with renumbered nodes and elements</p>
 
 <dl class="method">
 <dt id="cofea.Mesh.importFromAbaqusCae">
-<em class="property">classmethod </em><code class="sig-name descname">importFromAbaqusCae</code><span class="sig-paren">(</span><em class="sig-param">abqModelName</em>, <em class="sig-param">abqPartList</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cofea.html#Mesh.importFromAbaqusCae"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cofea.Mesh.importFromAbaqusCae" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">importFromAbaqusCae</code><span class="sig-paren">(</span><em class="sig-param">abqModelName</em>, <em class="sig-param">abqRootAssembly</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cofea.html#Mesh.importFromAbaqusCae"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cofea.Mesh.importFromAbaqusCae" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function to initiate the Mesh object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -425,6 +409,22 @@ parts with renumbered nodes and elements</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="cofea.Mesh.renumberMesh">
+<code class="sig-name descname">renumberMesh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cofea.html#Mesh.renumberMesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cofea.Mesh.renumberMesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function computes mesh at assembly level from list
+of Part objects. The returned dictionary contains
+parts with renumbered nodes and elements</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dictionary of parts</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>defaultdict(<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#list" title="(in Python v3.8)">list</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="cofea.Mesh.saveToDbFile">
 <code class="sig-name descname">saveToDbFile</code><span class="sig-paren">(</span><em class="sig-param">nameOfDbFile</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cofea.html#Mesh.saveToDbFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cofea.Mesh.saveToDbFile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function to save model data to db file</p>
@@ -435,11 +435,27 @@ parts with renumbered nodes and elements</p>
 </dl>
 </dd></dl>
 
+<dl class="method">
+<dt id="cofea.Mesh.setCalculixSurfDefinition">
+<code class="sig-name descname">setCalculixSurfDefinition</code><span class="sig-paren">(</span><em class="sig-param">surface_source</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cofea.html#Mesh.setCalculixSurfDefinition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cofea.Mesh.setCalculixSurfDefinition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function converts Part.surfaces into format appropriate
+for Calculix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dictionary with surface name as keys and dictionary surface
+definition as value</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="cofea.PartMesh">
-<em class="property">class </em><code class="sig-prename descclassname">cofea.</code><code class="sig-name descname">PartMesh</code><span class="sig-paren">(</span><em class="sig-param">partName</em>, <em class="sig-param">partNodes</em>, <em class="sig-param">partElements</em>, <em class="sig-param">elementSets=None</em>, <em class="sig-param">nodeSets=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cofea.html#PartMesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cofea.PartMesh" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cofea.</code><code class="sig-name descname">PartMesh</code><span class="sig-paren">(</span><em class="sig-param">partName</em>, <em class="sig-param">partNodes</em>, <em class="sig-param">partElements</em>, <em class="sig-param">elementSets=None</em>, <em class="sig-param">nodeSets=None</em>, <em class="sig-param">surfaces=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cofea.html#PartMesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cofea.PartMesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>PartMesh is an object used to store mesh properties for a given part.</p>
 <dl class="attribute">
 <dt id="cofea.PartMesh.name">
@@ -507,6 +523,19 @@ parts with renumbered nodes and elements</p>
 </dl>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cofea.PartMesh.surfaces">
+<code class="sig-name descname">surfaces</code><a class="headerlink" href="#cofea.PartMesh.surfaces" title="Permalink to this definition">¶</a></dt>
+<dd><p>dictionary of surfaces {surfName: {‘nodes’: nSet,
+‘elements’: elSet, ‘sides’: string},
+by default None</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>defaultdict(<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#list" title="(in Python v3.8)">list</a>), optional</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="method">
 <dt id="cofea.PartMesh.fromAbaqusCae">
 <em class="property">classmethod </em><code class="sig-name descname">fromAbaqusCae</code><span class="sig-paren">(</span><em class="sig-param">abqPart</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cofea.html#PartMesh.fromAbaqusCae"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cofea.PartMesh.fromAbaqusCae" title="Permalink to this definition">¶</a></dt>
@@ -520,32 +549,6 @@ parts with renumbered nodes and elements</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#cofea.PartMesh" title="cofea.PartMesh">PartMesh</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="cofea.PartMesh.getDiffFormatForElType">
-<code class="sig-name descname">getDiffFormatForElType</code><span class="sig-paren">(</span><em class="sig-param">oldElType</em>, <em class="sig-param">newMeshFormat</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cofea.html#PartMesh.getDiffFormatForElType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cofea.PartMesh.getDiffFormatForElType" title="Permalink to this definition">¶</a></dt>
-<dd><p>Function to retrieve name of element type for a
-specific software</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>oldElType</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – name of the element type that needs to be
-converted (eg ‘C3D8R’)</p></li>
-<li><p><strong>newMeshFormat</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – new mesh format (eg ‘UNV’)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>name of the element type in new format</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)">str</a></p>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.8/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – error appears when the specific element type
-    is not implemented</p>
 </dd>
 </dl>
 </dd></dl>
@@ -616,7 +619,7 @@ order is the same as in Abaqus.</p>
 <dt id="cofea.PartMesh.setElementTypeFormat">
 <code class="sig-name descname">setElementTypeFormat</code><span class="sig-paren">(</span><em class="sig-param">newFormat</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cofea.html#PartMesh.setElementTypeFormat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cofea.PartMesh.setElementTypeFormat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function to change element types in dictionary
-elementsByType (for example from C3D20R to )</p>
+elementsByType (for example from C3D20R to 116)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>newFormat</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – new format (eg ‘UNV’)</p>
@@ -660,6 +663,17 @@ theirs type, label and connection to nodes</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#list" title="(in Python v3.8)">list</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cofea.Element.changeLabel">
+<code class="sig-name descname">changeLabel</code><span class="sig-paren">(</span><em class="sig-param">newLabel</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cofea.html#Element.changeLabel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cofea.Element.changeLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function to change element label</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>newLabel</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – new element number</p>
 </dd>
 </dl>
 </dd></dl>

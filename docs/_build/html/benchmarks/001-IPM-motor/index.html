@@ -303,6 +303,28 @@
    Problem statement
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#magnetostatic-analysis">
+   Magnetostatic Analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparison-between-femm-and-emdtool">
+     Comparison between FEMM and EMDtool
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#time-stepping-analysis">
+   Time-stepping Analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -322,7 +344,47 @@
 <a class="reference internal image-reference" href="../../_images/IPM_geometry.png"><img alt="IPM Geometry" src="../../_images/IPM_geometry.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Illustration of the motor cross-section.</span><a class="headerlink" href="#ipm-geometry" title="Permalink to this image">¶</a></p>
 </div>
-<p>Detailed specifications of the motor can be found in the <a class="reference external" href="https://github.com/spolanski/CoFEA/tree/master/Benchmarks/001-IPM-motor">GitHub repository</a>.</p>
+<p>Detailed specifications as well as different models can be found on GitHub:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/AnttiLehikoinen/CoFEA/tree/master/Benchmarks/001-IPM-Motor/Files">Motor dimensions and specifications</a></p></li>
+<li><p><a class="reference external" href="https://github.com/AnttiLehikoinen/CoFEA/tree/master/Benchmarks/001-IPM-Motor/FEMM%20Analysis">FEMM model of the motor</a></p></li>
+<li><p><a class="reference external" href="https://github.com/AnttiLehikoinen/CoFEA/tree/master/Benchmarks/001-IPM-Motor/EMDtool%20Analysis">EMDtool analysis scripts</a></p></li>
+</ul>
+<p>Furthermore, the main assumptions are listed below:</p>
+<ul class="simple">
+<li><p>Nonlinear materials are modelled with single-valued non-hysteretic BH-curves, found in the <a class="reference external" href="https://github.com/AnttiLehikoinen/CoFEA/blob/master/Benchmarks/001-IPM-Motor/Files/specifications.xlsx">Excel sheet</a></p></li>
+<li><p>Permanent magnets are magnetically linear, of grade N42SH, and cannot be demagnetized. The rotor temperature is assumed to be 100 C, resulting in a remanence flux density of 1.18 T. The relative permeability is 1.05.</p></li>
+<li><p>Stator winding is modelled as infinitely stranded.</p></li>
+</ul>
+</div>
+<div class="section" id="magnetostatic-analysis">
+<h2>Magnetostatic Analysis<a class="headerlink" href="#magnetostatic-analysis" title="Permalink to this headline">¶</a></h2>
+<p>Only one rotor position is analysed here. The pole angle is changed by adjusting the angle of the stator current vector. Two current densities are analysed, 40 Arms/mm<sup>2</sup> and 20 Arms/mm<sup>2</sup>. Different comparisons
+are presented below.</p>
+<div class="section" id="comparison-between-femm-and-emdtool">
+<h3>Comparison between FEMM and EMDtool<a class="headerlink" href="#comparison-between-femm-and-emdtool" title="Permalink to this headline">¶</a></h3>
+<p>Results from the open-source <a class="reference external" href="https://www.femm.info/wiki/HomePage">FEMM</a> are compared with the proprietary <a class="reference external" href="https://www.smeklab.com/emdtool/">EMDtool</a> Matlab toolbox.</p>
+<div class="figure align-default" id="torque-curves">
+<a class="reference internal image-reference" href="../../_images/IPM_torque_curves.png"><img alt="Torque curves" src="../../_images/IPM_torque_curves.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Torque curves</span><a class="headerlink" href="#torque-curves" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="flux-density-from-femm">
+<a class="reference internal image-reference" href="../../_images/IPM_flux_FEMM.png"><img alt="Flux density from FEMM." src="../../_images/IPM_flux_FEMM.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Flux density plot from FEMM.</span><a class="headerlink" href="#flux-density-from-femm" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="flux-density-from-emdtool">
+<a class="reference internal image-reference" href="../../_images/IPM_flux_EMDtool.png"><img alt="Flux density from EMDtool." src="../../_images/IPM_flux_EMDtool.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Flux density plot from EMDtool.</span><a class="headerlink" href="#flux-density-from-emdtool" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="time-stepping-analysis">
+<h2>Time-stepping Analysis<a class="headerlink" href="#time-stepping-analysis" title="Permalink to this headline">¶</a></h2>
+<p>TDB.</p>
+</div>
+<div class="section" id="conclusions">
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
+<p>TBD.</p>
 </div>
 </div>
 
