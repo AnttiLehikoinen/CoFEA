@@ -48,5 +48,6 @@ reference/cofeaDocsSetup
 :caption: Benchmarks
 
 benchmarks/000-tuning-fork/index
+benchmarks/001-IPM-motor/index
 ```
 

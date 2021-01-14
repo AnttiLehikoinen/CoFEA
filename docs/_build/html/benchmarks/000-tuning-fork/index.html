@@ -1,10 +1,9 @@
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tuning fork benchmark &#8212; CoFEA Initiative</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
@@ -25,8 +24,8 @@
     href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -44,7 +43,7 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
@@ -57,6 +56,7 @@
     <link rel="shortcut icon" href="../../_static/cofea-black.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="IPM Motor Benchmark" href="../001-IPM-motor/index.html" />
     <link rel="prev" title="Documentation setup" href="../../reference/cofeaDocsSetup.html" /> 
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -204,6 +204,11 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Tuning fork benchmark
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../001-IPM-motor/index.html">
+   IPM Motor Benchmark
   </a>
  </li>
 </ul>
@@ -415,7 +420,7 @@
 <p>Simulation input files used in this study can be found on our <a class="reference external" href="https://github.com/spolanski/CoFEA/tree/master/Benchmarks/00-Tuning-Fork">GitHub</a>!</p>
 <div class="figure align-default" id="fork-results">
 <a class="reference internal image-reference" href="../../_images/fork-geo-results.png"><img alt="Fork original Results" src="../../_images/fork-geo-results.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Tuning fork geometry and its’ vibration modes</span><a class="headerlink" href="#fork-results" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Tuning fork geometry and its’ vibration modes</span><a class="headerlink" href="#fork-results" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="approximated-solution">
@@ -477,7 +482,7 @@
 <p>Number of simulations with different element types and mesh size have been performed for the tuning model. The animation below shows the results from the Calculix code.</p>
 <div class="figure align-default" id="fork-gif">
 <a class="reference internal image-reference" href="../../_images/movie.gif"><img alt="Fork gif" src="../../_images/movie.gif" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Tuning fork geometry and its’ 1st vibration mode</span><a class="headerlink" href="#fork-gif" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Tuning fork geometry and its’ 1st vibration mode</span><a class="headerlink" href="#fork-gif" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="linear-tetrahedral-mesh">
 <h3>Linear tetrahedral mesh<a class="headerlink" href="#linear-tetrahedral-mesh" title="Permalink to this headline">¶</a></h3>
@@ -509,7 +514,7 @@
 </table>
 <div class="figure align-default" id="liner-tetrahedral-mesh-fork-results">
 <a class="reference internal image-reference" href="../../_images/Linear-tetrahedral-mesh.png"><img alt="Linear tetrahedral mesh Results" src="../../_images/Linear-tetrahedral-mesh.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Chart representing results of the simulation with linear tetrahedral mesh</span><a class="headerlink" href="#liner-tetrahedral-mesh-fork-results" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Chart representing results of the simulation with linear tetrahedral mesh</span><a class="headerlink" href="#liner-tetrahedral-mesh-fork-results" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="error-obtained-with-linear-tetrahedral-mesh">
 <h4>Error obtained with linear tetrahedral mesh<a class="headerlink" href="#error-obtained-with-linear-tetrahedral-mesh" title="Permalink to this headline">¶</a></h4>
@@ -571,7 +576,7 @@
 </table>
 <div class="figure align-default" id="linear-hexahedral-mesh-fork-results">
 <a class="reference internal image-reference" href="../../_images/Linear-hexahedral-mesh.png"><img alt="Linear hexahedral mesh Results" src="../../_images/Linear-hexahedral-mesh.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Chart representing results of the simulation with linear hexahedral mesh</span><a class="headerlink" href="#linear-hexahedral-mesh-fork-results" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Chart representing results of the simulation with linear hexahedral mesh</span><a class="headerlink" href="#linear-hexahedral-mesh-fork-results" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="error-obtained-with-linear-hexahedral-mesh">
 <h4>Error obtained with linear hexahedral mesh<a class="headerlink" href="#error-obtained-with-linear-hexahedral-mesh" title="Permalink to this headline">¶</a></h4>
@@ -633,7 +638,7 @@
 </table>
 <div class="figure align-default" id="quadratic-tetrahedral-mesh-fork-results">
 <a class="reference internal image-reference" href="../../_images/Quadratic-tetrahedral-mesh.png"><img alt="Quadratic tetrahedral mesh Results" src="../../_images/Quadratic-tetrahedral-mesh.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Chart representing results of the simulation with quadratic tetrahedral mesh</span><a class="headerlink" href="#quadratic-tetrahedral-mesh-fork-results" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Chart representing results of the simulation with quadratic tetrahedral mesh</span><a class="headerlink" href="#quadratic-tetrahedral-mesh-fork-results" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="error-obtained-with-quadratic-tetrahedral-mesh">
 <h4>Error obtained with quadratic tetrahedral mesh<a class="headerlink" href="#error-obtained-with-quadratic-tetrahedral-mesh" title="Permalink to this headline">¶</a></h4>
@@ -695,7 +700,7 @@
 </table>
 <div class="figure align-default" id="quadratic-hexahedral-mesh-fork-results">
 <a class="reference internal image-reference" href="../../_images/Quadratic-hexahedral-mesh.png"><img alt="Quadratic hexahedral mesh Results" src="../../_images/Quadratic-hexahedral-mesh.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Chart representing results of the simulation with quadratic hexahedral mesh</span><a class="headerlink" href="#quadratic-hexahedral-mesh-fork-results" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Chart representing results of the simulation with quadratic hexahedral mesh</span><a class="headerlink" href="#quadratic-hexahedral-mesh-fork-results" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="error-obtained-with-quadratic-hexahedral-mesh">
 <h4>Error obtained with quadratic hexahedral mesh<a class="headerlink" href="#error-obtained-with-quadratic-hexahedral-mesh" title="Permalink to this headline">¶</a></h4>
@@ -757,7 +762,7 @@
 </table>
 <div class="figure align-default" id="quadratic-wedge-mesh-fork-results">
 <a class="reference internal image-reference" href="../../_images/Quadratic-wedge-mesh.png"><img alt="Quadratic wedge mesh Results" src="../../_images/Quadratic-wedge-mesh.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Chart representing results of the simulation with quadratic wedge mesh</span><a class="headerlink" href="#quadratic-wedge-mesh-fork-results" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Chart representing results of the simulation with quadratic wedge mesh</span><a class="headerlink" href="#quadratic-wedge-mesh-fork-results" title="Permalink to this image">¶</a></p>
 </div>
 <blockquote>
 <div><p>Error obtained with quadratic wedge mesh</p>
@@ -860,7 +865,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./benchmarks/000-tuning-fork"
+            path: "./benchmarks\000-tuning-fork"
         },
         predefinedOutput: true
     }
@@ -879,6 +884,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../../reference/cofeaDocsSetup.html" title="previous page">Documentation setup</a>
+    <a class='right-next' id="next-link" href="../001-IPM-motor/index.html" title="next page">IPM Motor Benchmark</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

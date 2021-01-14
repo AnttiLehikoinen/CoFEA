@@ -16,6 +16,7 @@ master_doc = "index"
 # ones.
 extensions = [
     "myst_nb",
+	"sphinxcontrib.bibtex",
     "sphinx_copybutton",
     "sphinx_togglebutton",
     "sphinxcontrib.bibtex",
@@ -27,6 +28,7 @@ extensions = [
     'sphinx.ext.napoleon',
     "ablog",
 ]
+bibtex_bibfiles = ['refs.bib']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]

@@ -1,10 +1,9 @@
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cofea &#8212; CoFEA Initiative</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
@@ -25,8 +24,8 @@
     href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -44,7 +43,7 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
@@ -205,6 +204,11 @@
    Tuning fork benchmark
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../benchmarks/001-IPM-motor/index.html">
+   IPM Motor Benchmark
+  </a>
+ </li>
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
@@ -309,6 +313,87 @@
     <span class="k">return</span> <span class="n">temp</span>
 
 
+<span class="k">class</span> <span class="nc">CoordSys</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Class used to store coordinate system information.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------    </span>
+<span class="sd">    id: int</span>
+<span class="sd">        Coordinate system number</span>
+<span class="sd">    label: str</span>
+<span class="sd">        Coordinate system name</span>
+<span class="sd">    type: str</span>
+<span class="sd">        Coordinate system type (&#39;rec&#39; - rectangular</span>
+<span class="sd">                                &#39;cyl&#39; - cylindrical</span>
+<span class="sd">                                &#39;sph&#39; - spherical)</span>
+<span class="sd">    ref: int</span>
+<span class="sd">        Reference coordinate system number</span>
+<span class="sd">    origin: tuple</span>
+<span class="sd">        Coordinate system origin specified in reference system (x,y,z)</span>
+<span class="sd">    plus_x_point: tuple</span>
+<span class="sd">        Coordinates of a point in the +x axis specified in reference</span>
+<span class="sd">        system (x,y,z)</span>
+<span class="sd">    plus_xz_points: tuple</span>
+<span class="sd">        Coordinates of a point in the +xz axis specified in reference</span>
+<span class="sd">        system (x,y,z)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">csID</span><span class="p">,</span> <span class="n">csLabel</span><span class="p">,</span> <span class="n">csType</span><span class="o">=</span><span class="s2">&quot;rec&quot;</span><span class="p">,</span> <span class="n">csRef</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">csOrigin</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+                 <span class="n">csPlusX</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">csPlusXZ</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)):</span>
+        <span class="sd">&quot;&quot;&quot;Coordinate system class constructor</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        csID: int</span>
+<span class="sd">            Coordinate system number</span>
+<span class="sd">        csLabel: str</span>
+<span class="sd">            Coordinate system name</span>
+<span class="sd">        csType: str</span>
+<span class="sd">            Coordinate system type (&#39;rec&#39; - rectangular</span>
+<span class="sd">                                    &#39;cyl&#39; - cylindrical</span>
+<span class="sd">                                    &#39;sph&#39; - spherical)</span>
+<span class="sd">        csRef: int</span>
+<span class="sd">            Reference coordinate system number</span>
+<span class="sd">        csOrigin: tuple</span>
+<span class="sd">            Coordinate system origin specified in reference system (x,y,z)</span>
+<span class="sd">        csPlusX: tuple</span>
+<span class="sd">            Coordinates of a point in the +x axis specified in reference</span>
+<span class="sd">            system (x,y,z)</span>
+<span class="sd">        csPlusXZ: tuple</span>
+<span class="sd">            Coordinates of a point in the +xz axis specified in</span>
+<span class="sd">            reference system (x,y,z)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">csID</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">csLabel</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">csType</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="n">csRef</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="n">csOrigin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">plus_x_point</span> <span class="o">=</span> <span class="n">csPlusX</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">plus_xz_point</span> <span class="o">=</span> <span class="n">csPlusXZ</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;CSYS - ID: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;; Label: &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span>
+
+    <span class="k">def</span> <span class="nf">changeLabel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newLabel</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;A function to change coordinate system label</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        newLabel: str</span>
+<span class="sd">            New coordinate system label</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">newLabel</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">changeID</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newID</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;A function to change coordinate system ID</span>
+<span class="sd">            </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        newID: int</span>
+<span class="sd">            New coordinate system ID</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">newID</span>
+            
 <div class="viewcode-block" id="Node"><a class="viewcode-back" href="../pyCofea/api.html#cofea.Node">[docs]</a><span class="k">class</span> <span class="nc">Node</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Used to create node objects from external data</span>
 
@@ -318,9 +403,11 @@
 <span class="sd">        Node number</span>
 <span class="sd">    coordinates: tuple</span>
 <span class="sd">        Node coordinates</span>
+<span class="sd">    csys: int</span>
+<span class="sd">        Node coordinate system </span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nLabel</span><span class="p">,</span> <span class="n">nCoords</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nLabel</span><span class="p">,</span> <span class="n">nCoords</span><span class="p">,</span> <span class="n">nCSYS</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Node class constructor.</span>
 
 <span class="sd">        Parameters</span>
@@ -333,6 +420,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">nLabel</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">coordinates</span> <span class="o">=</span> <span class="n">nCoords</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">csys</span> <span class="o">=</span> <span class="n">nCSYS</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
