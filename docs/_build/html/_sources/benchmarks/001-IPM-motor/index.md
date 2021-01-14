@@ -26,7 +26,11 @@ Furthermore, the main assumptions are listed below:
 
 * Nonlinear materials are modelled with single-valued non-hysteretic BH-curves, found in the [Excel sheet](https://github.com/AnttiLehikoinen/CoFEA/blob/master/Benchmarks/001-IPM-Motor/Files/specifications.xlsx)
 
+<<<<<<< HEAD
 * Permanent magnets are magnetically linear, of grade N42SH, and cannot be demagnetized. The rotor temperature is assumed to be 100 C, resulting in a remanence flux density of 1.18 T. The relative permeability is 1.05.
+=======
+* Permanent magnets are magnetically linear and cannot be demagnetized.
+>>>>>>> e1240282b0f36471fef5338a69e3c34970ff2e60
 
 * Stator winding is modelled as infinitely stranded.
 

@@ -2,7 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://cofea.readthedocs.io</id>
   <title>Blog</title>
+<<<<<<< HEAD
   <updated>2021-01-14T08:20:19.818864+00:00</updated>
+=======
+  <updated>2021-01-14T08:15:08.766055+00:00</updated>
+>>>>>>> e1240282b0f36471fef5338a69e3c34970ff2e60
   <link href="https://cofea.readthedocs.io"/>
   <link href="https://cofea.readthedocs.io/reference/blog/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.12">ABlog</generator>
